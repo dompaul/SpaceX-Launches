@@ -34,7 +34,8 @@ export default class App extends React.Component {
      * Responsible for getting the SpaceX dataset from the SpaceX API
      */
     getLaunches() {
-        fetch( `${ CONSTANTS.SPACE_X_API }` )
+        const sort = this.state.sort ? '?sort=launch_date_utc&order=desc' : '';
+        fetch( `${ CONSTANTS.SPACE_X_API }${ sort }` )
             .then( res => res.json() )
             .then( json => {
                 this.setState( {
@@ -73,7 +74,15 @@ export default class App extends React.Component {
      * Handles updating the items state with the new, sorted list
      */
     handleSort() {
-
+        this.setState( { sort: !this.state.sort }, () => {
+            const items = [ ...this.state.items ];
+            items.sort( ( a, b ) => {
+                const x = Number( new Date( a.launch_date_utc ).getTime() );
+                const y = Number( new Date( b.launch_date_utc ).getTime() );
+                return this.state.sort ? y - x : x - y;
+            } );
+            this.setState( { items: items } );
+        } );
     }
 
     /**
@@ -83,7 +92,7 @@ export default class App extends React.Component {
      * @param  {Object} event Filter on change event (e.g 2009)
      */
     handleFilter( event ) {
-
+        this.setState( { filter: event.target.value } );
     }
 
     render() {
