@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './components/Buttons/Button';
 import CONSTANTS from './common/constants';
 
 export default class App extends React.Component {
@@ -24,14 +25,28 @@ export default class App extends React.Component {
      * Runs after the component output has been rendered to the DOM
      */
     componentDidMount() {
-
+        this.getLaunches();
     }
 
     /**
      * Responsible for getting the SpaceX dataset from the SpaceX API
      */
     getLaunches() {
-
+        fetch( `${ CONSTANTS.SPACE_X_API }` )
+            .then( res => res.json() )
+            .then( json => {
+                this.setState( {
+                    isLoaded: true,
+                    items: json,
+                    years: this.getYears( json )
+                } );
+            } )
+            .catch( error => {
+                console.error( `Error ${ error }` );
+                this.setState( {
+                    error: true
+                } );
+            } );
     }
 
     /**
@@ -41,7 +56,14 @@ export default class App extends React.Component {
      * @return {Array} Returns an Array of years
      */
     getYears( json ) {
-
+        const years = new Set();
+        [ ...json ].forEach( item => {
+            const year = Number( new Date( item.launch_date_utc ).getFullYear() );
+            if ( !years.has( year ) ) {
+                years.add( year );
+            }
+        } );
+        return Array.from( years );
     }
 
     /**
@@ -72,7 +94,12 @@ export default class App extends React.Component {
                         <span className="app__logo-txt">Launches</span>
                     </div>
                 </header>
-
+                <Button
+                    state={ this.state }
+                    classes='button button--reload'
+                    event={ this.getLaunches.bind( this ) }
+                    text='Reload Data'
+                />
                 <div className="app__body">
                     <div className="app__image-container">
                         <img
