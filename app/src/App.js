@@ -1,4 +1,5 @@
 import React from 'react';
+import CONSTANTS from './common/constants';
 
 export default class App extends React.Component {
     /**
@@ -67,12 +68,23 @@ export default class App extends React.Component {
             <div className="app">
                 <header className="app__header">
                     <div className="app__logo">
-
+                        <img src={ CONSTANTS.LOGO } className="app__logo-image" alt="SpaceX" />
+                        <span className="app__logo-txt">Launches</span>
                     </div>
                 </header>
 
                 <div className="app__body">
+                    <div className="app__image-container">
+                        <img
+                            src={ CONSTANTS.SPACE_X_IMAGE }
+                            srcSet={ CONSTANTS.SPACE_X_RETINA_IMAGES }
+                            className="app__main-image"
+                            alt="Launch Home"
+                        />
+                    </div>
+                    <div className="app__filters">
 
+                    </div>
                 </div>
             </div>
         );
