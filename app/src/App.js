@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './components/Buttons/Button';
+import Select from './components/Buttons/Select';
 import CONSTANTS from './common/constants';
 
 export default class App extends React.Component {
@@ -110,8 +111,20 @@ export default class App extends React.Component {
                         />
                     </div>
                     <div className="app__filters">
-
+                        <Select
+                            state={ this.state }
+                            classes='select'
+                            event={ this.handleFilter.bind( this ) }
+                            text='Filter By Year'
+                        />
+                        <Button
+                            state={ this.state }
+                            classes='button button--sort'
+                            event={ this.handleSort.bind( this ) }
+                            text={ this.state.sort ? ' Sort Ascending' : 'Sort Descending' }
+                        />
                     </div>
+                    <ul></ul>
                 </div>
             </div>
         );
