@@ -44,4 +44,31 @@
         justify-content: flex-end;
     }
 
+    @media (max-width: $breakpoint-wide) {
+
+        &__main-image {
+            max-width: 40rem;
+        }
+    }
+
+    @media (max-width: $breakpoint-desktop) {
+        padding: 3.5rem 2.4rem 2.4rem;
+
+        &__main-image {
+            display: none;
+        }
+
+        &__launches {
+            padding-left: 0;
+        }
+
+        &__logo-image {
+            width: 13rem;
+            height: 1.8rem;
+        }
+
+        &__logo-txt {
+            font-size: 1.6rem;
+        }
+    }
 }

@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Renders the Button component
+ * @param {Object} props Passed-in arguments from the constructor class including the state
+ */
 const Button = ( props ) => {
 
     const { isLoaded, error } = props.state;

@@ -42,4 +42,41 @@
         font-weight: $bold;
     }
 
+    @media (max-width: $breakpoint-wide) {
+
+        &__number {
+            font-size: 3rem;
+            width: 6rem;
+            padding-left: 1.4rem;
+        }
+
+        &__label {
+            font-size: 2.2rem;
+        }
+
+        &__rocket {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+        padding: 1.2rem;
+
+        &__number {
+            font-size: 2rem;
+            width: 4rem;
+        }
+
+        &__label {
+            font-size: 1.8rem;
+        }
+
+        &__rocket {
+            font-size: 1.6rem;
+        }
+
+        &__date {
+            font-size: 1.4rem;
+        }
+    }
 }

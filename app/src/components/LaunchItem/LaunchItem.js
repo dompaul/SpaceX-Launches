@@ -2,8 +2,8 @@ import React from 'react';
 import Moment from 'react-moment';
 
 /**
- * [LaunchItem description]
- * @param {[type]} props [description]
+ * Responsible for rendering the Launch Item
+ * @param {Object} props Passed-in arguments from the constructor class including the state
  */
 const LaunchItem = ( props ) => {
     return (

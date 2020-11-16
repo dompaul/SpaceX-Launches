@@ -1,6 +1,10 @@
 import React from 'react';
 import LaunchItem from '../LaunchItem/LaunchItem';
 
+/**
+ * Responsible for rendering the wrapper for the LaunchItem component
+ * @param {Object} props Passed-in arguments from the constructor class including the state
+ */
 const LaunchList = ( props ) => {
 
     const { items, filter, isLoaded, error } = props.state;

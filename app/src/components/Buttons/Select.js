@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Renders the Select component
+ * @param {Object} props Passed-in arguments from the constructor class including the state
+ */
 const Select = ( props ) => {
 
     const { years, isLoaded, error } = props.state;
