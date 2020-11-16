@@ -12,3 +12,13 @@ https://docs.spacexdata.com/
 - As a user, I want the ability to reload the data to see any new changes
 - As a user, I want the ability to filter the launch list by year
 - As a user, I want the ability to sort all launches by date (ascending/descending)
+
+### Running the application
+
+Install the dependencies and start the server.
+
+```sh
+$ cd app
+$ npm install
+$ yarn start
+```
