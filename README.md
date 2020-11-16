@@ -2,6 +2,10 @@
 
 This is a create React application that consumes data from the SpaceX public API. The application retrieves historic and future SpaceX launches and presents them in a list view.
 
+### The API documentation is available from:
+
+https://docs.spacexdata.com/
+
 ### Stories:
 
 - As a user, I want the ability to load the full list of SpaceX launches from the SpaceX API
